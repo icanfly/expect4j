@@ -31,7 +31,9 @@ public class RegExpMatch extends PatternPair {
         super(patternStr, closure);
     }
     
-    protected static Perl5Compiler compiler;
+    //TODO: removed static keyword, since Perl5Compiler is not threadsafe
+    //
+    protected Perl5Compiler compiler;
     public Perl5Compiler getCompiler() {
         if( compiler == null)
             compiler = new Perl5Compiler();
